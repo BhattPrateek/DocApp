@@ -6,7 +6,9 @@ function Doctor({ doctor, id, setActiveDoctor }) {
       onClick={e => {
         setActiveDoctor(e, id);
       }}
-    ><a className="link">{`${doctor.firstName} ${doctor.lastName}`}</a></div>
+    >
+      <a className="link">{`${doctor.firstName} ${doctor.lastName}`}</a>
+    </div>
   );
 }
 

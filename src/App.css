@@ -13,14 +13,14 @@
   color: white;
 }
 
-.appTitle{
+.appTitle {
   margin-top: 20px;
   font-size: 25px;
   color: gray;
 }
 
 .view {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-left: 150px;
@@ -28,7 +28,7 @@
   margin-top: 15%;
 }
 
-.header{
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -36,13 +36,13 @@
 
 }
 
-.appointmentColumn{
+.appointmentColumn {
   display: flex;
   flex-direction: column;
 
 }
 
-.appointmentInformation{
+.appointmentInformation {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -51,31 +51,34 @@
   border-bottom: 2px solid #D3D3D3;
 }
 
-.listHeader{
+.listHeader {
   font-size: 20px;
   font-weight: 600;
 
 }
 
-.link{
-  color: blue; 
+.link {
+  color: blue;
 }
 
-.link:hover{
+.link:hover {
   color: purple;
   cursor: pointer;
   text-decoration: underline;
 }
 
-.id{
+.id {
   padding: 5px;
 }
-.name{
+
+.name {
   padding: 5px;
 }
-.time{
+
+.time {
   padding: 5px;
 }
-.kind{
+
+.kind {
   padding: 5px;
 }

@@ -4,17 +4,18 @@ import "./App.css";
 import Doctor from "./Doctors";
 import Appointments from "./Appointments";
 
-
 function App() {
   const initDoctorState = null;
-  const initActiveState = {active: null}
+  const initActiveState = { active: null };
   const initAppointmentState = null;
 
   const [doctorsState, setDoctorsState] = useState(initDoctorState);
 
   const [activeState, setActiveState] = useState(initActiveState);
 
-  const [appointmentState, setAppointmentState] = useState(initAppointmentState);
+  const [appointmentState, setAppointmentState] = useState(
+    initAppointmentState
+  );
 
   function getAllDoctors(url, data = {}) {
     // Default options are marked with *
@@ -30,11 +31,11 @@ function App() {
       referrer: "no-referrer"
       // body: JSON.stringify(data)
     }).then(response => response.json());
-  };
-  
+  }
+
   function fetchAppointments(url, id) {
     // Default options are marked with *
-    const data = {id: id};
+    const data = { id: id };
     return fetch(url, {
       method: "POST",
       mode: "cors",
@@ -47,14 +48,13 @@ function App() {
       referrer: "no-referrer",
       body: JSON.stringify(data)
     }).then(response => response.json());
-  };
-  
-  
+  }
+
   const getDoctors = (setDoctorsState, setActiveState) => {
     getAllDoctors("/getDoctors")
       .then(data => {
         console.log(JSON.stringify(data));
-        
+
         setDoctorsState(data.doctors);
         setActiveState({
           active: 1
@@ -65,7 +65,7 @@ function App() {
         console.error(error);
       });
   };
-  
+
   const getAppointmentsById = (setAppointmentState, id) => {
     fetchAppointments("/getAppointmentById", id)
       .then(data => {
@@ -78,9 +78,9 @@ function App() {
       });
   };
 
-  const setActiveDoctor = (e, id) =>{
+  const setActiveDoctor = (e, id) => {
     getAppointmentsById(setAppointmentState, id);
-  }
+  };
 
   useEffect(() => {
     getDoctors(setDoctorsState, setActiveState);
@@ -90,16 +90,13 @@ function App() {
     getAppointmentsById(setAppointmentState, 1);
   }, []);
 
-
-
-
   return (
     <div className="App">
       <header className="Doctor Appointments">
-      <div className="appTitle">Doctor Appointment App</div>
+        <div className="appTitle">Doctor Appointment App</div>
         <div className="view">
-        <Doctor doctors={doctorsState} setActiveDoctor={setActiveDoctor}/>
-        <Appointments appointments={appointmentState}/>
+          <Doctor doctors={doctorsState} setActiveDoctor={setActiveDoctor} />
+          <Appointments appointments={appointmentState} />
         </div>
       </header>
     </div>
